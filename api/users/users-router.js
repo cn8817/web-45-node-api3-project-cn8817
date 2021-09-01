@@ -1,7 +1,7 @@
 const express = require('express');
 const { validateUserId, validateUser, validatePost } = require('../middleware/middleware')
 
-const User = require('../users/users-model')
+const User = require('./users-model')
 const Post = require('../posts/posts-model')
 
 // You will need `users-model.js` and `posts-model.js` both
@@ -45,7 +45,7 @@ router.put('/:id', validateUserId, validateUser, (req, res, next) => {
     .then(user => {
       res.json(user)
     })
-    .cathc(next)
+    .catch(next)
 });
 
 router.delete('/:id',validateUserId, async (req, res) => {
